@@ -10,7 +10,7 @@ class BlogsController < ApplicationController
 
   def create
     @blog = Blog.new(blog_params)
-    @blog.user_id = current_user.id
+    #@blog.user_id = current_user.id
     if @blog.save
       flash[:notice] = "ブログを作成しました"
       redirect_to blog_path(@blog.id)
@@ -30,7 +30,7 @@ class BlogsController < ApplicationController
 
 
   def update
-    @blog = Blog.find(parmas[:id])
+    @blog = Blog.find(params[:id])
     if @blog.update(blog_params)
       flash[:notice] = 'ブログを更新しました'
       redirect_to blogs_path
@@ -40,7 +40,7 @@ class BlogsController < ApplicationController
   end
 
   def destroy
-    @blog = Blog.find(parmas[:id])
+    @blog = Blog.find(params[:id])
     @blog.destroy
     flash[:alert] = 'ブログを削除しました'
     redirect_to blogs_path
