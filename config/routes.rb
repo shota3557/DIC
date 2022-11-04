@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show]
   resources :blogs
-end  
+  root to: 'blogs#index'
+end
+
