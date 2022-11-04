@@ -1,6 +1,6 @@
 class CreateUsers < ActiveRecord::Migration[6.1]
   def change
-    create_table :users do |t|
+    create_table :users, :id => false, :created_at => false do |t|
       t.integer :id,null: false,primary_key: true
       t.string :email,null: false
       t.string :name,null: false
